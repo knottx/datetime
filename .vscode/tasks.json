@@ -1,0 +1,98 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "dev",
+      "detail": "Start the Vite dev server at http://localhost:5173/datetime/",
+      "type": "npm",
+      "script": "dev",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "vite",
+        "pattern": {
+          "regexp": "^__never_matches__$"
+        },
+        "background": {
+          "activeBegins": true,
+          "beginsPattern": "^>",
+          "endsPattern": "ready in"
+        }
+      },
+      "presentation": {
+        "reveal": "silent",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "preview",
+      "detail": "Build for production and serve at http://localhost:4173/datetime/",
+      "type": "shell",
+      "command": "npm run build && npm run preview",
+      "isBackground": true,
+      "problemMatcher": [
+        "$tsc",
+        {
+          "owner": "vite-preview",
+          "pattern": {
+            "regexp": "^__never_matches__$"
+          },
+          "background": {
+            "activeBegins": true,
+            "beginsPattern": "^> uuid@1.0.0 build",
+            "endsPattern": "Network"
+          }
+        }
+      ],
+      "presentation": {
+        "reveal": "silent",
+        "panel": "dedicated",
+        "clear": true
+      }
+    },
+    {
+      "label": "typecheck",
+      "detail": "Run the TypeScript compiler (no emit)",
+      "type": "npm",
+      "script": "typecheck",
+      "problemMatcher": "$tsc",
+      "presentation": {
+        "reveal": "silent",
+        "clear": true
+      }
+    },
+    {
+      "label": "test",
+      "detail": "Run the conversion tests",
+      "type": "npm",
+      "script": "test",
+      "problemMatcher": [],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "clear": true
+      }
+    },
+    {
+      "label": "Stop servers",
+      "detail": "Stop the dev/preview servers started for debugging",
+      "command": "${input:terminateServers}",
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "terminateServers",
+      "type": "command",
+      "command": "workbench.action.tasks.terminate",
+      "args": "terminateAll"
+    }
+  ]
+}

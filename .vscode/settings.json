@@ -1,0 +1,6 @@
+{
+  "files.associations": { "*.css": "tailwindcss" },
+  "editor.quickSuggestions": { "strings": "on" },
+  "tailwindCSS.classAttributes": ["class", "className"],
+  "search.exclude": { "dist": true, "package-lock.json": true }
+}

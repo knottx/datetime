@@ -1,0 +1,75 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug: Chrome (dev)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:5173/datetime/",
+      "webRoot": "${workspaceFolder}",
+      "pathMapping": {
+        "/datetime/": "${workspaceFolder}/"
+      },
+      "preLaunchTask": "dev",
+      "postDebugTask": "Stop servers",
+      "sourceMaps": true,
+      "skipFiles": [
+        "<node_internals>/**",
+        "**/node_modules/**"
+      ]
+    },
+    {
+      "name": "Debug: Edge (dev)",
+      "type": "msedge",
+      "request": "launch",
+      "url": "http://localhost:5173/datetime/",
+      "webRoot": "${workspaceFolder}",
+      "pathMapping": {
+        "/datetime/": "${workspaceFolder}/"
+      },
+      "preLaunchTask": "dev",
+      "postDebugTask": "Stop servers",
+      "sourceMaps": true,
+      "skipFiles": [
+        "<node_internals>/**",
+        "**/node_modules/**"
+      ]
+    },
+    {
+      "name": "Debug: Chrome (production preview)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:4173/datetime/",
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": "preview",
+      "postDebugTask": "Stop servers",
+      "skipFiles": [
+        "<node_internals>/**",
+        "**/node_modules/**"
+      ]
+    },
+    {
+      "name": "Attach: Chrome (port 9222)",
+      "type": "chrome",
+      "request": "attach",
+      "port": 9222,
+      "urlFilter": "http://localhost:*/datetime/*",
+      "webRoot": "${workspaceFolder}",
+      "pathMapping": {
+        "/datetime/": "${workspaceFolder}/"
+      }
+    },
+    {
+      "name": "Debug: conversion tests (Node)",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/tests/time.test.ts",
+      "env": {
+        "TZ": "Asia/Bangkok"
+      },
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    }
+  ]
+}
